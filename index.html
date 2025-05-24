@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+	<meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navium Browserstartseite</title>
+
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="assets/css/color.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/popup.css">
+</head>
+
+<body>
+
+    <header>
+
+    <div class="header-left">
+        <button id="edit-favorites-button" class="header-button">Favoriten bearbeiten</button>
+        <button id="edit-theme-button" class="header-button">Theme bearbeiten</button>
+        <div id="quick-access-buttons"></div>
+    </div>
+
+</header>
+
+
+    <div class="container">
+
+        <h1 class="page-title">Navium</h1>
+
+        <form action="https://www.google.com/search" method="GET" target="_blank" class="search-container">
+            <input type="text" name="q" placeholder="Suche im Web oder gib eine URL ein" class="search-bar" id="search-bar">
+            <button type="submit" class="search-button">Suchen</button>
+        </form>
+
+        <div class="favorites">
+            <h2>Favoriten</h2>
+         <noscript><h3 style="text-align: center;">!!! Um die Favoritenfunktion nutzen zu können und das Theme anzupassen muss JavaScript aktiviert sein !!!</noscript>
+            <div class="favorites-grid" id="favorites-grid"></div>
+        </div>
+
+    </div>
+
+    <!-- Popup für Favoritenverwaltung -->
+    <div class="popup-overlay" id="favorites-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Favoriten verwalten</h2>
+                <button class="close-button">&times;</button>
+            </div>
+            <div id="favorites-list"></div>
+            <button id="add-favorite">Neuen Favoriten hinzufügen</button>
+            <button id="save-favorites" class="save-button">Speichern</button>
+        </div>
+    </div>
+
+    <!-- Popup für Theme-Einstellungen -->
+    <div class="popup-overlay" id="theme-popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Theme bearbeiten</h2>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="theme-options">
+                <button class="theme-button" data-theme="light">Hellmodus</button>
+                <button class="theme-button" data-theme="dark">Dunkelmodus</button>
+            </div>
+            <div class="color-picker">
+                <label for="primary-color">Primärfarbe:</label>
+                <input type="color" id="primary-color" value="#1a73e8">
+            </div>
+            <div class="color-picker-section">
+                <h3>Erweiterte Farbauswahl</h3>
+                <div class="color-area">
+                    <div id="color-field" class="color-field"></div>
+                    <div class="rgb-input-section">
+                        <div class="rgb-input-container">
+                            <span class="rgb-input-label">H</span>
+                            <input type="range" id="hue-slider" min="0" max="360" value="0">
+                        </div>
+                        <div class="rgb-input-container">
+                            <span class="rgb-input-label">R</span>
+                            <input type="number" id="red-input" class="rgb-input" min="0" max="255">
+                        </div>
+                        <div class="rgb-input-container">
+                            <span class="rgb-input-label">G</span>
+                            <input type="number" id="green-input" class="rgb-input" min="0" max="255">
+                        </div>
+                        <div class="rgb-input-container">
+                            <span class="rgb-input-label">B</span>
+                            <input type="number" id="blue-input" class="rgb-input" min="0" max="255">
+                        </div>
+                        <div class="hex-input-container">
+                            <span class="hex-input-label">Hex</span>
+                            <input type="text" id="hex-input" class="hex-input" maxlength="7">
+                        </div>
+                    </div>
+                </div>
+                <div id="color-display" class="color-display"></div>
+            </div>
+            <div class="background-effect">
+                <label>
+                    <input type="checkbox" id="background-effect"> Primärfarbe auf Hintergrund anwenden
+                </label>
+            </div>
+            <button id="save-theme" class="save-button">Speichern</button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
